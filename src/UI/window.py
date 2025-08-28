@@ -1,6 +1,6 @@
 import tkinter as tk
 import ctypes
-from UI.scene import Scene
+from ui.scene import Scene
 
 
 class Window():

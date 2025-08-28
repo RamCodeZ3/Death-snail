@@ -1,6 +1,7 @@
 import tkinter as tk
 import math
 from core.kill import Kill
+from ui.death_window import DeathWindow
 
 
 class Snail:
@@ -33,6 +34,8 @@ class Snail:
         
         if (self.x, self.y) == (cx, cy):
             Kill()
+            DeathWindow()
+            
 
         # Mover al caracol
         self.scene.canvas.coords(self.imageRef, self.x, self.y)
