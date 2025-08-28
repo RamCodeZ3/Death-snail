@@ -1,5 +1,6 @@
 import tkinter as tk
 import math
+from core.kill import Kill
 
 
 class Snail:
@@ -29,6 +30,9 @@ class Snail:
             self.y += dy / dist * self.speed
         else:  # si ya está cerca, ponerlo encima
             self.x, self.y = cx, cy
+        
+        if (self.x, self.y) == (cx, cy):
+            Kill()
 
         # Mover al caracol
         self.scene.canvas.coords(self.imageRef, self.x, self.y)

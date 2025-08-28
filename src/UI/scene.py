@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import Canvas
-from snail import Snail
+from core.snail import Snail
+
 
 class Scene:
     def __init__(self, window: tk.Tk):

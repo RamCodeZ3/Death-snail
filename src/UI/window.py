@@ -1,6 +1,6 @@
 import tkinter as tk
 import ctypes
-from scene import Scene
+from UI.scene import Scene
 
 
 class Window():
@@ -19,7 +19,8 @@ class Window():
         window.attributes("-fullscreen", True) 
         window.overrideredirect(True)
         
-        # Transparencia
+        # Transparencia de la ventana
+    
         window.attributes('-transparentcolor', 'white')
         window.config(bg='white')
         return window
