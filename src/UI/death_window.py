@@ -1,9 +1,11 @@
 import tkinter as tk
 import datetime
-
+from threading import Timer
+import os
 
 class DeathWindow():
-    def __init__(self):
+
+    def death_window():
         window = tk.Tk()
         window.config(bg="black")
         window.overrideredirect(True)
@@ -27,6 +29,14 @@ class DeathWindow():
         )
         
         game_over.place(relx=0.5, rely=0.5, anchor="center")
-        label_datetime.place(relx=0.5, rely=0.6, anchor="center")  # Cambiado para estar debajo
+        label_datetime.place(relx=0.5, rely=0.6, anchor="center")
 
         window.mainloop()
+    
+    def kill():
+        print("Muerto")
+
+    
+if __name__ == '__main__':
+    DeathWindow.death_window()
+    t = Timer(2, DeathWindow.kill())

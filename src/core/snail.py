@@ -1,13 +1,13 @@
 import tkinter as tk
 import math
-from core.kill import Kill
+from ui.death_window import DeathWindow
 
 
 class Snail:
     def __init__(self, scene, speed=1.0):
         # Definicion de los atributos del caracol
         self.scene = scene
-        self.image = tk.PhotoImage(file="./image/Snail.png")
+        self.image = tk.PhotoImage(file="../image/Snail.png")
         self.imageRef = self.scene.canvas.create_image(0, 0, image=self.image, anchor="center")
         self.x = 0.0
         self.y = 0.0
@@ -32,8 +32,7 @@ class Snail:
             self.x, self.y = cx, cy
         
         if (self.x, self.y) == (cx, cy):
-            Kill()
+            DeathWindow()
             
-
         # Mover al caracol
         self.scene.canvas.coords(self.imageRef, self.x, self.y)
