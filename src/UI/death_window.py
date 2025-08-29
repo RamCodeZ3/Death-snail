@@ -1,15 +1,19 @@
 import tkinter as tk
 import datetime
 from threading import Timer
-import os
 
-class DeathWindow():
+class DeathWindow:
 
-    def death_window():
+    def __init__(self):
+        # Al instanciar la clase se ejecutan las dos funciones
+        Timer(2, self.kill).start()  # IMPORTANTE: sin paréntesis en self.kill
+        self.death_window()
+        
+
+    def death_window(self):
         window = tk.Tk()
         window.config(bg="black")
         window.overrideredirect(True)
-
         window.geometry(f"{window.winfo_screenwidth()}x{window.winfo_screenheight()}+0+0")
 
         game_over = tk.Label(
@@ -23,7 +27,7 @@ class DeathWindow():
         label_datetime = tk.Label(
             window,
             bg="black",
-            text=f"{datetime.datetime.today().strftime("%d-%m-%Y %H:%M:%S")}",
+            text=f"{datetime.datetime.today().strftime('%d-%m-%Y %H:%M:%S')}",
             font=("bold", 20),
             fg="red"
         )
@@ -33,10 +37,10 @@ class DeathWindow():
 
         window.mainloop()
     
-    def kill():
+
+    def kill(self):
         print("Muerto")
 
-    
+
 if __name__ == '__main__':
-    DeathWindow.death_window()
-    t = Timer(2, DeathWindow.kill())
+    DeathWindow()
