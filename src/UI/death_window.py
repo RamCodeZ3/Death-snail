@@ -1,12 +1,17 @@
 import tkinter as tk
 import datetime
+import os
 from threading import Timer
+from playsound import playsound
+
+PATH = os.path.abspath("media/audio/horror.mp3")
 
 class DeathWindow:
 
     def __init__(self):
         # Al instanciar la clase se ejecutan las dos funciones
-        Timer(2, self.kill).start()  # IMPORTANTE: sin paréntesis en self.kill
+        Timer(5, self.kill).start()
+        Timer(0.5, self.sound).start()
         self.death_window()
         
 
@@ -37,9 +42,11 @@ class DeathWindow:
 
         window.mainloop()
     
-
     def kill(self):
         print("Muerto")
+    
+    def sound(self):
+        playsound(PATH)
 
 
 if __name__ == '__main__':

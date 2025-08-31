@@ -1,14 +1,22 @@
 import tkinter as tk
 import math
 from ui.death_window import DeathWindow
+import os
+
+PATH = os.path.abspath("media/image/Snail.png")
 
 
 class Snail:
-    def __init__(self, scene, speed=1.0):
+    def __init__(self, scene, speed=0.5):
         # Definicion de los atributos del caracol
         self.scene = scene
-        self.image = tk.PhotoImage(file="./media/image/Snail.png")
-        self.imageRef = self.scene.canvas.create_image(0, 0, image=self.image, anchor="center")
+        self.image = tk.PhotoImage(file=PATH)
+        self.imageRef = self.scene.canvas.create_image(
+            0,
+            0,
+            image=self.image,
+            anchor="center"
+        )
         self.x = 0.0
         self.y = 0.0
         self.speed = speed
